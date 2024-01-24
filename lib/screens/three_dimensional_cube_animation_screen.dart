@@ -1,5 +1,6 @@
+import 'package:animations_flutter/screens/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animations/utils/app_texts.dart';
+import 'package:animations_flutter/utils/app_texts.dart';
 import 'dart:math' show pi;
 import 'package:vector_math/vector_math_64.dart' show Vector3;
 
@@ -59,8 +60,8 @@ class _ThreeDimensionalCubeAnimationScreenState
       ..repeat();
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(AppTexts.threeDimensionalCubeAnimation),
+      appBar: const CustomAppBar(
+        titleString: AppTexts.threeDimensionalCubeAnimation,
       ),
       body: Center(
         child: Column(

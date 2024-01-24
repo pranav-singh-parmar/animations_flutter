@@ -1,6 +1,9 @@
+import 'package:animations_flutter/screens/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animations/utils/app_texts.dart';
+import 'package:animations_flutter/utils/app_texts.dart';
 import 'dart:math' show pi;
+import 'package:animations_flutter/utils/extensions.dart' show DelayedExtension;
+import 'package:animations_flutter/screens/widgets/circle_clipper.dart' show CircleClipperEnum, CircleClipper;
 
 class SpinAndFlipAnimationScreen extends StatefulWidget {
   const SpinAndFlipAnimationScreen({super.key});
@@ -73,8 +76,8 @@ class _SpinAndFlipAnimationScreenState extends State<SpinAndFlipAnimationScreen>
       ..forward.delayed(const Duration(seconds: 1));
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(AppTexts.spinAndFlipAnimation),
+      appBar: const CustomAppBar(
+        titleString: AppTexts.spinAndFlipAnimation,
       ),
       body: Center(
         child: AnimatedBuilder(
@@ -95,8 +98,8 @@ class _SpinAndFlipAnimationScreenState extends State<SpinAndFlipAnimationScreen>
                               transform: Matrix4.identity()
                                 ..rotateY(_flipAnimation.value),
                               child: ClipPath(
-                                clipper: const HalfCircleClipper(
-                                    circleSideEnum: CircleSideEnum.left),
+                                clipper: const CircleClipper(
+                                    circleSideEnum: CircleClipperEnum.leftTitledSemiCircle),
                                 child: Container(
                                   height: 100,
                                   width: 100,
@@ -112,8 +115,8 @@ class _SpinAndFlipAnimationScreenState extends State<SpinAndFlipAnimationScreen>
                               transform: Matrix4.identity()
                                 ..rotateY(_flipAnimation.value),
                               child: ClipPath(
-                                  clipper: const HalfCircleClipper(
-                                      circleSideEnum: CircleSideEnum.right),
+                                  clipper: const CircleClipper(
+                                      circleSideEnum: CircleClipperEnum.rightTitledSemiCircle),
                                   child: Container(
                                       height: 100,
                                       width: 100,
@@ -128,49 +131,3 @@ class _SpinAndFlipAnimationScreenState extends State<SpinAndFlipAnimationScreen>
   }
 }
 
-enum CircleSideEnum { left, right }
-
-extension CircleSideEnumEx on CircleSideEnum {
-  Path toPath(Size size) {
-    final path = Path();
-    Offset offset;
-    bool clockwise = false;
-    switch (this) {
-      case CircleSideEnum.left:
-        path.moveTo(size.width, 0);
-        offset = Offset(size.width, size.height);
-        clockwise = false;
-        break;
-      case CircleSideEnum.right:
-        offset = Offset(0, size.height);
-        clockwise = true;
-        break;
-    }
-    path.arcToPoint(offset,
-        radius: Radius.elliptical(size.width / 2, size.height / 2),
-        clockwise: clockwise);
-
-    path.close();
-    return path;
-  }
-}
-
-class HalfCircleClipper extends CustomClipper<Path> {
-  final CircleSideEnum circleSideEnum;
-
-  const HalfCircleClipper({required this.circleSideEnum});
-
-  @override
-  Path getClip(Size size) => circleSideEnum.toPath(size);
-
-  /* 
-  this function tells that when changes happen to parent widget, should clip path be redrawn
-  set it to true becuase size may vary
-  */
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => true;
-}
-
-extension on VoidCallback {
-  Future<void> delayed(Duration duration) => Future.delayed(duration, this);
-}

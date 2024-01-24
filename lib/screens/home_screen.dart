@@ -1,8 +1,13 @@
+import 'package:animations_flutter/screens/animated_container_screen.dart';
+import 'package:animations_flutter/screens/auto_color_updating_circle_screen.dart';
+import 'package:animations_flutter/screens/hero_animation_first_screen.dart';
+import 'package:animations_flutter/screens/polygon_animation_screen.dart';
+import 'package:animations_flutter/screens/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animations/screens/spin_and_flip_animation.dart';
-import 'package:flutter_animations/screens/simple_animation_screen.dart';
-import 'package:flutter_animations/screens/three_dimensional_cube_animation_screen.dart';
-import 'package:flutter_animations/utils/app_texts.dart';
+import 'package:animations_flutter/screens/spin_and_flip_animation.dart';
+import 'package:animations_flutter/screens/simple_animation_screen.dart';
+import 'package:animations_flutter/screens/three_dimensional_cube_animation_screen.dart';
+import 'package:animations_flutter/utils/app_texts.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -21,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Center(
         child: Column(
           children: [
-            ElevatedButton(
+            CustomElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -29,25 +34,63 @@ class _HomeScreenState extends State<HomeScreen> {
                         builder: (context) => const SimpleAnimationScreen()),
                   );
                 },
-                child: const Text(AppTexts.simpleAnimation)),
-              ElevatedButton(
+                title: AppTexts.simpleAnimation),
+            CustomElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const SpinAndFlipAnimationScreen()),
+                        builder: (context) =>
+                            const SpinAndFlipAnimationScreen()),
                   );
                 },
-                child: const Text(AppTexts.spinAndFlipAnimation)),
-                ElevatedButton(
+                title: AppTexts.spinAndFlipAnimation),
+            CustomElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const ThreeDimensionalCubeAnimationScreen()),
+                        builder: (context) =>
+                            const ThreeDimensionalCubeAnimationScreen()),
                   );
                 },
-                child: const Text(AppTexts.threeDimensionalCubeAnimation))
+                title: AppTexts.threeDimensionalCubeAnimation),
+            CustomElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HeroAnimationFirstScreen()),
+                  );
+                },
+                title: AppTexts.heroAnimationFirstScreen),
+            CustomElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AnimatedContainerScreen()),
+                  );
+                },
+                title: AppTexts.animatedContainerScreen),
+              CustomElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AutoColorUpdatingCircleScreen()),
+                  );
+                },
+                title: AppTexts.autoColorUpdatingCircleScreen),
+              CustomElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const PolygonAnimationScreen()),
+                  );
+                },
+                title: AppTexts.polygonAnimationScreen)
           ],
         ),
       ),
