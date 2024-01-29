@@ -1,4 +1,7 @@
-import 'package:animations_flutter/screens/hero_animation_second_screen.dart';
+import 'package:animations_flutter/utils/app_constants.dart'
+    show NavigationEnum;
+import 'package:animations_flutter/utils/extensions.dart'
+    show NavigationEnumExtension;
 import 'package:animations_flutter/screens/widgets/custom_app_bar.dart';
 import 'package:animations_flutter/utils/app_texts.dart';
 import 'package:flutter/material.dart';
@@ -31,13 +34,9 @@ class _HeroAnimationFirstScreenState extends State<HeroAnimationFirstScreen> {
           final personModel = people[index];
           return ListTile(
             onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => HeroAnimationSecondScreen(
-                    personModel: personModel,
-                  ),
-                ),
-              );
+              Navigator.of(context).navigateTo(
+                  NavigationEnum.heroAnimationSecond,
+                  parameters: personModel);
             },
             leading: Hero(
               tag: personModel.name,

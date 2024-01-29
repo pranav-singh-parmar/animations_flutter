@@ -1,13 +1,10 @@
-import 'package:animations_flutter/screens/animated_container_screen.dart';
-import 'package:animations_flutter/screens/auto_color_updating_circle_screen.dart';
-import 'package:animations_flutter/screens/hero_animation_first_screen.dart';
-import 'package:animations_flutter/screens/polygon_animation_screen.dart';
 import 'package:animations_flutter/screens/widgets/custom_elevated_button.dart';
+import 'package:animations_flutter/utils/app_constants.dart'
+    show NavigationEnum;
 import 'package:flutter/material.dart';
-import 'package:animations_flutter/screens/spin_and_flip_animation.dart';
-import 'package:animations_flutter/screens/simple_animation_screen.dart';
-import 'package:animations_flutter/screens/three_dimensional_cube_animation_screen.dart';
 import 'package:animations_flutter/utils/app_texts.dart';
+import 'package:animations_flutter/utils/extensions.dart'
+    show NavigationEnumExtension;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,6 +14,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final List<NavigationEnum> _navigationList = [
+    NavigationEnum.simpleAnimation,
+    NavigationEnum.spinAndFlipAnimation,
+    NavigationEnum.threeDimensionalCubeAnimation,
+    NavigationEnum.heroAnimationFirst,
+    NavigationEnum.animatedContainer,
+    NavigationEnum.autoColorUpdatingCirle,
+    NavigationEnum.polygonAnimation,
+    NavigationEnum.drawerAnimation
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,76 +32,46 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text(AppTexts.home),
       ),
       body: Center(
-        child: Column(
-          children: [
-            CustomElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SimpleAnimationScreen()),
-                  );
-                },
-                title: AppTexts.simpleAnimation),
-            CustomElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            const SpinAndFlipAnimationScreen()),
-                  );
-                },
-                title: AppTexts.spinAndFlipAnimation),
-            CustomElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            const ThreeDimensionalCubeAnimationScreen()),
-                  );
-                },
-                title: AppTexts.threeDimensionalCubeAnimation),
-            CustomElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const HeroAnimationFirstScreen()),
-                  );
-                },
-                title: AppTexts.heroAnimationFirstScreen),
-            CustomElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const AnimatedContainerScreen()),
-                  );
-                },
-                title: AppTexts.animatedContainerScreen),
-              CustomElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const AutoColorUpdatingCircleScreen()),
-                  );
-                },
-                title: AppTexts.autoColorUpdatingCircleScreen),
-              CustomElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const PolygonAnimationScreen()),
-                  );
-                },
-                title: AppTexts.polygonAnimationScreen)
-          ],
-        ),
-      ),
+          child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: _navigationList.length,
+        itemBuilder: _listElement,
+      )),
     );
+  }
+
+  Widget _listElement(BuildContext context, int index) {
+    final navigationEnum = _navigationList[index];
+    return Center(
+      child: CustomElevatedButton(
+          onPressed: () {
+            // Navigator.push(context, route)
+            Navigator.of(context).navigateTo(navigationEnum);
+          },
+          title: getTitleFor(navigationEnum)),
+    );
+  }
+
+  String getTitleFor(NavigationEnum navigationEnum) {
+    switch (navigationEnum) {
+      case NavigationEnum.simpleAnimation:
+        return AppTexts.simpleAnimation;
+      case NavigationEnum.spinAndFlipAnimation:
+        return AppTexts.spinAndFlipAnimation;
+      case NavigationEnum.threeDimensionalCubeAnimation:
+        return AppTexts.threeDimensionalCubeAnimation;
+      case NavigationEnum.heroAnimationFirst:
+        return AppTexts.heroAnimationFirstScreen;
+      case NavigationEnum.animatedContainer:
+        return AppTexts.animatedContainerScreen;
+      case NavigationEnum.autoColorUpdatingCirle:
+        return AppTexts.autoColorUpdatingCircleScreen;
+      case NavigationEnum.polygonAnimation:
+        return AppTexts.polygonAnimationScreen;
+      case NavigationEnum.drawerAnimation:
+        return AppTexts.drawerAnimationScreen;
+      default:
+        return "";
+    }
   }
 }

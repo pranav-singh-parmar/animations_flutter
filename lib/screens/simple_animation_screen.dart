@@ -1,4 +1,5 @@
 import 'package:animations_flutter/screens/widgets/custom_app_bar.dart';
+import 'package:animations_flutter/utils/app_constants.dart' show AppColors;
 import 'package:flutter/material.dart';
 import 'dart:math' show pi;
 
@@ -50,7 +51,7 @@ class _SimpleAnimationScreenState extends State<SimpleAnimationScreen>
               height: 100,
               width: 100,
               decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: AppColors.blueColor,
                   borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(

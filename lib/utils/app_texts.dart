@@ -1,4 +1,6 @@
 class AppTexts {
+  static const animationsFlutter = "Animations Flutter";
+
   //home_screen
   static const home = "Home";
 
@@ -27,4 +29,7 @@ class AppTexts {
 
   //polygon_animation_screen
   static const polygonAnimationScreen = "Polygon Animation Screen";
+
+  //drawer_animation_screen
+  static const drawerAnimationScreen = "Drawer Animation Screen";
 }

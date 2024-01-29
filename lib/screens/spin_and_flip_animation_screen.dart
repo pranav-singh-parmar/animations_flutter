@@ -1,4 +1,5 @@
 import 'package:animations_flutter/screens/widgets/custom_app_bar.dart';
+import 'package:animations_flutter/utils/app_constants.dart' show AppColors;
 import 'package:flutter/material.dart';
 import 'package:animations_flutter/utils/app_texts.dart';
 import 'dart:math' show pi;
@@ -103,7 +104,7 @@ class _SpinAndFlipAnimationScreenState extends State<SpinAndFlipAnimationScreen>
                                 child: Container(
                                   height: 100,
                                   width: 100,
-                                  color: Colors.blue,
+                                  color: AppColors.blueColor,
                                 ),
                               ));
                         }),
@@ -120,7 +121,7 @@ class _SpinAndFlipAnimationScreenState extends State<SpinAndFlipAnimationScreen>
                                   child: Container(
                                       height: 100,
                                       width: 100,
-                                      color: Colors.yellow)));
+                                      color: AppColors.yellowColor)));
                         }),
                   ],
                 ),

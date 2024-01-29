@@ -25,16 +25,18 @@ class _PolygonAnimationScreenState extends State<PolygonAnimationScreen>
   @override
   void initState() {
     super.initState();
-    _sidesAC = AnimationController(vsync: this, duration: Duration(seconds: 3));
+    _sidesAC =
+        AnimationController(vsync: this, duration: const Duration(seconds: 3));
     _sidesAnimation = IntTween(begin: 3, end: 10).animate(_sidesAC);
 
-    _sizeAC = AnimationController(vsync: this, duration: Duration(seconds: 3));
+    _sizeAC =
+        AnimationController(vsync: this, duration: const Duration(seconds: 3));
     _sizeAnimation = Tween<double>(begin: 20.0, end: 400)
         .chain(CurveTween(curve: Curves.bounceInOut))
         .animate(_sizeAC);
 
     _rotationAC =
-        AnimationController(vsync: this, duration: Duration(seconds: 3));
+        AnimationController(vsync: this, duration: const Duration(seconds: 3));
     _rotationAnimation = Tween<double>(begin: 0, end: 2 * pi)
         .chain(CurveTween(curve: Curves.easeInOut))
         .animate(_rotationAC);
