@@ -6,6 +6,7 @@ import 'package:animations_flutter/screens/hero_animation_first_screen.dart';
 import 'package:animations_flutter/screens/hero_animation_second_screen.dart';
 import 'package:animations_flutter/screens/home_screen.dart';
 import 'package:animations_flutter/screens/polygon_animation_screen.dart';
+import 'package:animations_flutter/screens/prompt_screen.dart';
 import 'package:animations_flutter/screens/simple_animation_screen.dart';
 import 'package:animations_flutter/screens/spin_and_flip_animation_screen.dart';
 import 'package:animations_flutter/screens/three_dimensional_cube_animation_screen.dart';
@@ -57,6 +58,9 @@ extension NavigationEnumExtension on NavigatorState {
         break;
       case NavigationEnum.drawerAnimation:
         screen = const DrawerAnimationScreen();
+        break;
+      case NavigationEnum.prompt:
+        screen = const PromptScreen();
         break;
     }
 

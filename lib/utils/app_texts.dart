@@ -32,4 +32,10 @@ class AppTexts {
 
   //drawer_animation_screen
   static const drawerAnimationScreen = "Drawer Animation Screen";
+
+  //prompt_screen
+  static const promptScreen = "Prompt Screen";
+  static const title = "Title";
+  static const subtitle = "Subtitle";
+  static const restartAnimation = "Restart Animation";
 }

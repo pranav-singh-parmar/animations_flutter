@@ -22,7 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
     NavigationEnum.animatedContainer,
     NavigationEnum.autoColorUpdatingCirle,
     NavigationEnum.polygonAnimation,
-    NavigationEnum.drawerAnimation
+    NavigationEnum.drawerAnimation,
+    NavigationEnum.prompt
   ];
 
   @override
@@ -70,6 +71,8 @@ class _HomeScreenState extends State<HomeScreen> {
         return AppTexts.polygonAnimationScreen;
       case NavigationEnum.drawerAnimation:
         return AppTexts.drawerAnimationScreen;
+      case NavigationEnum.prompt:
+        return AppTexts.promptScreen;
       default:
         return "";
     }

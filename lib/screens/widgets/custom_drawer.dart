@@ -55,7 +55,7 @@ class _CustomDrawerState extends State<CustomDrawer>
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final maxDrag = screenWidth * 1;
+    final maxDrag = screenWidth * 0.8;
     return GestureDetector(
       onHorizontalDragUpdate: (details) {
         final delta = details.delta.dx / maxDrag;

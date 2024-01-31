@@ -10,7 +10,8 @@ enum NavigationEnum {
   animatedContainer,
   autoColorUpdatingCirle,
   polygonAnimation,
-  drawerAnimation
+  drawerAnimation,
+  prompt
 }
 
 class AppColors {
