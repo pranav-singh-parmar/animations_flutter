@@ -1,6 +1,7 @@
 import 'package:animations_flutter/models/person_model.dart';
 import 'package:animations_flutter/screens/animated_container_screen.dart';
 import 'package:animations_flutter/screens/auto_color_updating_circle_screen.dart';
+import 'package:animations_flutter/screens/box_custom_animation_screen.dart';
 import 'package:animations_flutter/screens/drawer_animation_screen.dart';
 import 'package:animations_flutter/screens/hero_animation_first_screen.dart';
 import 'package:animations_flutter/screens/hero_animation_second_screen.dart';
@@ -61,6 +62,9 @@ extension NavigationEnumExtension on NavigatorState {
         break;
       case NavigationEnum.prompt:
         screen = const PromptScreen();
+        break;
+      case NavigationEnum.boxCustomAnimation:
+        screen = const BoxCustomAnimationScreen();
         break;
     }
 

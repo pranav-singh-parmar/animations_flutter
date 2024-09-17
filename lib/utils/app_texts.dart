@@ -38,4 +38,7 @@ class AppTexts {
   static const title = "Title";
   static const subtitle = "Subtitle";
   static const restartAnimation = "Restart Animation";
+
+  //box_custom_animation
+  static const boxCustomAnimation = "Box Custom Animation";
 }
